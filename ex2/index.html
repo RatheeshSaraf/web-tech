@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopX Pro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            ShopX Pro
+
+        </div>
+
+        <div class="searchBox">
+
+            <input type="text" id="search" placeholder="Search Products...">
+
+            <button>
+
+                <i class="fa fa-search"></i>
+
+            </button>
+
+        </div>
+
+        <ul>
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#">Products</a></li>
+
+            <li>
+<a href="wishlist.html">
+❤️ Wishlist
+</a>
+</li>
+
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="icons">
+
+            <button id="darkBtn">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+           <a href="cart.html" class="cartIcon">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span id="cartCount">0</span>
+
+</a>
+
+               
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="heroText">
+
+            <h1>
+
+                Mega Shopping Sale
+
+            </h1>
+
+            <p>
+
+                Buy Premium Products at Amazing Prices.
+
+            </p>
+
+            <button>
+
+                Shop Now
+
+            </button>
+
+        </div>
+
+        <div class="heroImage">
+
+            <img src="images/banner.png">
+
+        </div>
+
+    </section>
+
+    <!-- Categories -->
+
+    <section class="categories">
+
+        <button class="category active">
+
+            All
+
+        </button>
+
+        <button class="category">
+
+            Electronics
+
+        </button>
+
+        <button class="category">
+
+            Fashion
+
+        </button>
+
+        <button class="category">
+
+            Shoes
+
+        </button>
+
+        <button class="category">
+
+            Watches
+
+        </button>
+
+        <button class="category">
+
+            Accessories
+
+        </button>
+
+    </section>
+
+    <!-- Products -->
+
+    <section class="products">
+
+        <h2>
+
+            Trending Products
+
+        </h2>
+
+        <div id="productContainer">
+
+        </div>
+
+    </section>
+
+    <!-- Floating Cart -->
+
+    <div class="floatingCart">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span id="floatingCount">
+
+            0
+
+        </span>
+
+    </div>
+
+    <!-- Toast -->
+
+    <div id="toast">
+
+        Product Added Successfully
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div>
+
+            ShopX Pro © 2026
+
+        </div>
+
+        <div>
+
+             
+
+        </div>
+
+    </footer>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/app.js"></script>
+</body>
+
+</html>

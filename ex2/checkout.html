@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Checkout</title>
+
+<link rel="stylesheet" href="css/checkout.css">
+
+</head>
+
+
+<body>
+
+
+<h1>
+Checkout 🛒
+</h1>
+
+
+
+<div class="checkoutBox">
+
+
+<h2>
+Customer Details
+</h2>
+
+
+<input id="name" placeholder="Full Name">
+
+
+<input id="phone" placeholder="Phone Number">
+
+
+<input id="address" placeholder="Address">
+
+
+
+
+
+<h2>
+Coupon
+</h2>
+
+
+<input id="coupon" placeholder="Enter Coupon">
+
+
+<button onclick="applyCoupon()">
+
+Apply
+
+</button>
+
+
+
+
+
+<h2>
+Order Summary
+</h2>
+
+
+<p>
+Subtotal:
+₹<span id="subtotal">0</span>
+</p>
+
+
+<p>
+Discount:
+₹<span id="discount">0</span>
+</p>
+
+
+<p>
+GST:
+₹<span id="gst">0</span>
+</p>
+
+
+<p>
+Delivery:
+₹<span id="delivery">0</span>
+</p>
+
+
+<hr>
+
+
+<h2>
+
+Total:
+₹<span id="grandTotal">0</span>
+
+</h2>
+
+
+
+<button class="orderBtn"
+onclick="placeOrder()">
+
+Place Order
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<script src="js/products.js"></script>
+
+<script src="js/cart.js"></script>
+
+<script src="js/checkout.js"></script>
+
+
+</body>
+
+</html>

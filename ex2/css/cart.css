@@ -1,0 +1,152 @@
+body{
+    background:#f8fafc;
+    font-family:Arial;
+}
+
+
+.cartTitle{
+    text-align:center;
+    color:#2563eb;
+    margin:30px;
+}
+
+
+#cartItems{
+    max-width:900px;
+    margin:auto;
+}
+
+
+.cartProduct{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:20px;
+
+padding:20px;
+
+margin-bottom:20px;
+
+background:white;
+
+border-radius:18px;
+
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.cartProduct:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+.cartProduct img{
+
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:15px;
+
+}
+
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:10px;
+}
+
+.quantity span{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.quantity button{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+}
+
+
+.remove{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#ef4444;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.cartSummary{
+    max-width:900px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.checkoutBtn{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.checkoutBtn:hover{
+    background:#1d4ed8;
+}
+.emptyCart{
+    text-align:center;
+    background:white;
+    padding:60px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+.cartSummary{
+    max-width:900px;
+    margin:30px auto;
+    padding:25px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.cartSummary h3{
+    margin-bottom:20px;
+}
+
+.cartSummary p{
+    display:flex;
+    justify-content:space-between;
+    font-size:18px;
+    margin:10px 0;
+}
+
+.cartSummary h2{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}

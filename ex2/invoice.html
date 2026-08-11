@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Order Invoice</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="invoice">
+
+<h1>TechStore</h1>
+
+<h2>Tax Invoice</h2>
+
+<p>
+Invoice No:
+<span id="invoiceNo"></span>
+</p>
+
+<p>
+Date:
+<span id="date"></span>
+</p>
+
+<p>
+Customer:
+<span id="customer"></span>
+</p>
+
+<table border="1" width="100%" cellspacing="0" cellpadding="8">
+
+<tr>
+
+<th>Product</th>
+
+<th>Qty</th>
+
+<th>Price</th>
+
+<th>Total</th>
+
+</tr>
+
+<tbody id="invoiceItems">
+
+</tbody>
+
+</table>
+
+<br>
+
+<h2>
+
+Grand Total:
+₹<span id="invoiceTotal"></span>
+
+</h2>
+
+
+<button onclick="window.print()">
+
+Print Invoice
+
+</button>
+
+
+<br><br>
+
+
+<a href="index.html">
+
+<button>
+
+Continue Shopping
+
+</button>
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+<script src="js/products.js"></script>
+
+<script src="js/cart.js"></script>
+
+<script src="js/checkout.js"></script>
+
+
+<script>
+
+
+document.getElementById("customer")
+.innerHTML =
+localStorage.getItem("customerName");
+
+
+let order = JSON.parse(localStorage.getItem("order"));
+
+document.getElementById("customer").innerHTML =
+order.customerName;
+
+document.getElementById("invoiceTotal").innerHTML =
+order.total;
+
+let box = document.getElementById("invoiceItems");
+
+order.items.forEach(item=>{
+
+    box.innerHTML += `
+        <tr>
+            <td>${item.name}</td>
+            <td>${item.quantity}</td>
+            <td>₹${item.price}</td>
+            <td>₹${item.price * item.quantity}</td>
+        </tr>
+    `;
+
+}); 
+</script>
+
+
+</body>
+
+</html>
