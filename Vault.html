@@ -1,8 +1,9 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,281 +19,492 @@
 
         body {
             min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: #0b1120;
-            color: #f8fafc;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
 
-            padding: 40px 20px;
+            background: #f5f7fb;
+
+            color: #111827;
+
+            padding: 50px 20px;
         }
+
+
+        /* =========================
+           MAIN
+        ========================= */
 
         .container {
             width: 100%;
-            max-width: 850px;
+            max-width: 950px;
+
+            margin: auto;
         }
 
-        /* HEADER */
 
-        .lab-header {
+        /* =========================
+           TOP HEADER
+        ========================= */
+
+        .top-bar {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 25px;
+            align-items: flex-start;
 
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        .lab-tag {
-            display: inline-block;
 
-            padding: 6px 10px;
+        .student-info {
+            color: #6b7280;
 
-            border-radius: 20px;
-
-            background: rgba(255, 255, 255, 0.08);
-
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-size: 13px;
 
             margin-bottom: 12px;
         }
 
-        h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
+
+        .student-info strong {
+            color: #111827;
         }
+
+
+        .tag {
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 6px 12px;
+
+            border-radius: 50px;
+
+            background: #eef2ff;
+
+            color: #4f46e5;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 14px;
+        }
+
+
+        h1 {
+            font-size: clamp(30px, 5vw, 44px);
+
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+
+            color: #111827;
+
+            margin-bottom: 10px;
+        }
+
 
         .subtitle {
-            color: #94a3b8;
+            max-width: 550px;
+
+            color: #6b7280;
+
             font-size: 14px;
-            line-height: 1.6;
+
+            line-height: 1.7;
         }
 
-        /* COUNT */
 
-        .exercise-count {
-            min-width: 80px;
+        /* =========================
+           COUNT BOX
+        ========================= */
 
-            padding: 15px 12px;
+        .count-box {
+            min-width: 100px;
+
+            padding: 18px 15px;
 
             text-align: center;
 
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 15px;
+            background: #ffffff;
 
-            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(15, 23, 42, 0.06);
         }
 
-        .exercise-count strong {
+
+        .count-box strong {
             display: block;
 
-            font-size: 25px;
+            color: #4f46e5;
+
+            font-size: 28px;
 
             line-height: 1;
+
+            margin-bottom: 6px;
         }
 
-        .exercise-count span {
-            display: block;
 
-            margin-top: 6px;
-
-            color: #94a3b8;
+        .count-box span {
+            color: #9ca3af;
 
             font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
         }
 
-        /* EXERCISES */
+
+        /* =========================
+           EXERCISE LIST
+        ========================= */
 
         .exercise-list {
-            display: flex;
-            flex-direction: column;
+            display: grid;
 
-            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 14px;
         }
 
+
+        /* =========================
+           EXERCISE CARD
+        ========================= */
+
         .exercise-item {
+
+            position: relative;
+
             display: flex;
+
             align-items: center;
 
             gap: 16px;
 
-            padding: 16px 18px;
+            padding: 20px;
 
-            color: inherit;
+            min-height: 100px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
             text-decoration: none;
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
+            color: inherit;
 
-            background: rgba(255, 255, 255, 0.025);
+            overflow: hidden;
 
-            transition: 0.25s ease;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
         }
+
+
+        .exercise-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            width: 4px;
+
+            background: #4f46e5;
+
+            transform: scaleY(0);
+
+            transform-origin: bottom;
+
+            transition: transform 0.25s ease;
+        }
+
 
         .exercise-item:hover {
-            transform: translateX(7px);
 
-            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-4px);
 
-            background: rgba(255, 255, 255, 0.07);
+            border-color: #c7d2fe;
+
+            box-shadow:
+                0 15px 35px rgba(15, 23, 42, 0.09);
         }
 
-        /* NUMBER */
+
+        .exercise-item:hover::before {
+
+            transform: scaleY(1);
+        }
+
+
+        /* =========================
+           NUMBER
+        ========================= */
 
         .exercise-number {
-            width: 40px;
-            height: 40px;
+
+            width: 44px;
+            height: 44px;
 
             flex-shrink: 0;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            border-radius: 11px;
+            border-radius: 13px;
 
-            background: rgba(255, 255, 255, 0.08);
+            background: #f3f4f6;
 
-            color: #e2e8f0;
+            color: #4f46e5;
 
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 12px;
+
+            font-weight: 800;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
         }
 
-        /* TEXT */
+
+        .exercise-item:hover .exercise-number {
+
+            background: #4f46e5;
+
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
 
         .exercise-info {
+
             flex: 1;
+
+            min-width: 0;
         }
+
 
         .exercise-info h3 {
-            margin-bottom: 4px;
+
+            color: #111827;
 
             font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
         }
+
 
         .exercise-info p {
-            color: #64748b;
+
+            color: #9ca3af;
 
             font-size: 11px;
+
+            line-height: 1.5;
         }
 
-        /* ARROW */
+
+        /* =========================
+           ARROW
+        ========================= */
 
         .exercise-arrow {
-            color: #64748b;
 
-            font-size: 20px;
+            display: flex;
 
-            transition: 0.25s ease;
+            align-items: center;
+            justify-content: center;
+
+            width: 30px;
+            height: 30px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: #f9fafb;
+
+            color: #9ca3af;
+
+            font-size: 15px;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
         }
+
 
         .exercise-item:hover .exercise-arrow {
-            color: #f8fafc;
 
-            transform: translate(3px, -3px);
+            background: #eef2ff;
+
+            color: #4f46e5;
+
+            transform: translate(2px, -2px);
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         .footer {
+
             display: flex;
+
             align-items: center;
+
+            justify-content: center;
 
             gap: 8px;
 
-            margin-top: 20px;
+            margin-top: 28px;
 
-            color: #64748b;
+            color: #9ca3af;
 
             font-size: 11px;
         }
 
+
         .status-dot {
+
             width: 6px;
             height: 6px;
 
             border-radius: 50%;
 
-            background: #22c55e;
+            background: #6366f1;
         }
 
-        /* MOBILE */
 
-        @media (max-width: 600px) {
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
 
             body {
-                padding: 30px 15px;
+                padding: 35px 15px;
             }
 
-            .lab-header {
-                align-items: flex-start;
+
+            .top-bar {
+
+                flex-direction: column;
+
+                gap: 25px;
             }
+
+
+            .count-box {
+
+                align-self: flex-start;
+
+                min-width: 85px;
+            }
+
+
+            .exercise-list {
+
+                grid-template-columns: 1fr;
+            }
+
 
             h1 {
-                font-size: 26px;
-            }
 
-            .exercise-count {
-                min-width: 65px;
-            }
-
-            .exercise-item {
-                padding: 13px;
-            }
-
-            .exercise-info h3 {
-                font-size: 13px;
-            }
-
-            .exercise-info p {
-                font-size: 10px;
+                font-size: 32px;
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+
     <main class="container">
 
-        <header class="lab-header">
+
+        <!-- HEADER -->
+
+        <header class="top-bar">
 
             <div>
-                 <p class="subtitle">
-                    Ratheesh R - 25MCA00PY0077
-                 </p>
-                <span class="lab-tag">WEB LAB</span>
+                            <span class="status-dot"></span>
 
-                <h1>Web Technology Exercises</h1>
+                <p class="student-info">
+                    <strong>Ratheesh R</strong>
+                    &nbsp;•&nbsp;
+                    25MCA00PY0077
+                </p>
 
-               
+
+                <span class="tag">
+                    WEB TECHNOLOGY • LAB
+                </span>
+
+
+                <h1>
+                    Web Technology<br>
+                    Exercises
+                </h1>
+
+
+                <p class="subtitle">
+                </p>
 
             </div>
 
 
-            <div class="exercise-count">
+            <div class="count-box">
 
                 <strong>05</strong>
 
-                <span>Exercises</span>
+                <span>
+                    Exercises
+                </span>
 
             </div>
 
         </header>
 
 
+        <!-- EXERCISES -->
+
         <section class="exercise-list">
 
 
-            <!-- Exercise 01 -->
+            <!-- 01 -->
 
             <a
                 href="https://ratheeshsaraf.github.io/web-tech/ex1/portfolio/index.html"
@@ -303,6 +515,7 @@
                 <span class="exercise-number">
                     01
                 </span>
+
 
                 <div class="exercise-info">
 
@@ -316,6 +529,7 @@
 
                 </div>
 
+
                 <span class="exercise-arrow">
                     ↗
                 </span>
@@ -323,7 +537,7 @@
             </a>
 
 
-            <!-- Exercise 02 -->
+            <!-- 02 -->
 
             <a
                 href="https://ratheeshsaraf.github.io/web-tech/ex2/index.html"
@@ -334,6 +548,7 @@
                 <span class="exercise-number">
                     02
                 </span>
+
 
                 <div class="exercise-info">
 
@@ -347,6 +562,7 @@
 
                 </div>
 
+
                 <span class="exercise-arrow">
                     ↗
                 </span>
@@ -354,7 +570,7 @@
             </a>
 
 
-            <!-- Exercise 03 -->
+            <!-- 03 -->
 
             <a
                 href="https://ratheeshsaraf.github.io/web-tech/ex3/index.html"
@@ -365,6 +581,7 @@
                 <span class="exercise-number">
                     03
                 </span>
+
 
                 <div class="exercise-info">
 
@@ -378,6 +595,7 @@
 
                 </div>
 
+
                 <span class="exercise-arrow">
                     ↗
                 </span>
@@ -385,7 +603,7 @@
             </a>
 
 
-            <!-- Exercise 04 -->
+            <!-- 04 -->
 
             <a
                 href="https://ratheeshsaraf.github.io/web-tech/ex4/index.html"
@@ -396,6 +614,7 @@
                 <span class="exercise-number">
                     04
                 </span>
+
 
                 <div class="exercise-info">
 
@@ -409,6 +628,7 @@
 
                 </div>
 
+
                 <span class="exercise-arrow">
                     ↗
                 </span>
@@ -416,7 +636,7 @@
             </a>
 
 
-            <!-- Exercise 05 -->
+            <!-- 05 -->
 
             <a
                 href="https://ratheesh.ct.ws/ex5/index.php"
@@ -427,6 +647,7 @@
                 <span class="exercise-number">
                     05
                 </span>
+
 
                 <div class="exercise-info">
 
@@ -440,6 +661,7 @@
 
                 </div>
 
+
                 <span class="exercise-arrow">
                     ↗
                 </span>
@@ -450,17 +672,21 @@
         </section>
 
 
+        <!-- FOOTER -->
+
         <footer class="footer">
 
             <span>
             </span>
 
-            <span class="status-dot"></span>
 
         </footer>
 
+
     </main>
+
 
 </body>
 
 </html>
+```
