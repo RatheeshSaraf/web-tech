@@ -1,238 +1,468 @@
 ```html
-<!-- Web Technology Exercises -->
-<div class="project-card web-lab-card">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="lab-header">
-        <div>
-            <span class="lab-tag">WEB LAB</span>
-            <h3>Web Technology Exercises</h3>
-            <p>Weekly collection of my Web Technology practical exercises.</p>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div class="exercise-count">
-            <strong>05</strong>
-            <span>Exercises</span>
-        </div>
-    </div>
+    <title>Web Technology Exercises | Ratheesh R</title>
 
-    <div class="exercise-list">
+    <style>
 
-        <a href="https://ratheeshsaraf.github.io/web-tech/ex1/portfolio/index.html"
-           target="_blank" class="exercise-item">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            <span class="exercise-number">01</span>
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #f8fafc;
 
-            <div class="exercise-info">
-                <h4>Portfolio Website</h4>
-                <p>Personal portfolio using HTML & CSS</p>
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        /* HEADER */
+
+        .lab-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+
+            margin-bottom: 30px;
+        }
+
+        .lab-tag {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* COUNT */
+
+        .exercise-count {
+            min-width: 80px;
+
+            padding: 15px 12px;
+
+            text-align: center;
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .exercise-count strong {
+            display: block;
+
+            font-size: 25px;
+
+            line-height: 1;
+        }
+
+        .exercise-count span {
+            display: block;
+
+            margin-top: 6px;
+
+            color: #94a3b8;
+
+            font-size: 10px;
+        }
+
+        /* EXERCISES */
+
+        .exercise-list {
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .exercise-item {
+            display: flex;
+            align-items: center;
+
+            gap: 16px;
+
+            padding: 16px 18px;
+
+            color: inherit;
+            text-decoration: none;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.025);
+
+            transition: 0.25s ease;
+        }
+
+        .exercise-item:hover {
+            transform: translateX(7px);
+
+            border-color: rgba(255, 255, 255, 0.25);
+
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        /* NUMBER */
+
+        .exercise-number {
+            width: 40px;
+            height: 40px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            color: #e2e8f0;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* TEXT */
+
+        .exercise-info {
+            flex: 1;
+        }
+
+        .exercise-info h3 {
+            margin-bottom: 4px;
+
+            font-size: 15px;
+        }
+
+        .exercise-info p {
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+        /* ARROW */
+
+        .exercise-arrow {
+            color: #64748b;
+
+            font-size: 20px;
+
+            transition: 0.25s ease;
+        }
+
+        .exercise-item:hover .exercise-arrow {
+            color: #f8fafc;
+
+            transform: translate(3px, -3px);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 20px;
+
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 30px 15px;
+            }
+
+            .lab-header {
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .exercise-count {
+                min-width: 65px;
+            }
+
+            .exercise-item {
+                padding: 13px;
+            }
+
+            .exercise-info h3 {
+                font-size: 13px;
+            }
+
+            .exercise-info p {
+                font-size: 10px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="container">
+
+        <header class="lab-header">
+
+            <div>
+
+                <span class="lab-tag">WEB LAB</span>
+
+                <h1>Web Technology Exercises</h1>
+
+                <p class="subtitle">
+                    Weekly collection of my Web Technology practical exercises.
+                </p>
+
             </div>
 
-            <span class="exercise-arrow">↗</span>
-        </a>
 
+            <div class="exercise-count">
 
-        <a href="https://ratheeshsaraf.github.io/web-tech/ex2/index.html"
-           target="_blank" class="exercise-item">
+                <strong>05</strong>
 
-            <span class="exercise-number">02</span>
+                <span>Exercises</span>
 
-            <div class="exercise-info">
-                <h4>Shopping Cart</h4>
-                <p>Basic cart functionality and item management</p>
             </div>
 
-            <span class="exercise-arrow">↗</span>
-        </a>
+        </header>
 
 
-        <a href="https://ratheeshsaraf.github.io/web-tech/ex3/index.html"
-           target="_blank" class="exercise-item">
-
-            <span class="exercise-number">03</span>
-
-            <div class="exercise-info">
-                <h4>Simple Quiz</h4>
-                <p>Interactive quiz using web technologies</p>
-            </div>
-
-            <span class="exercise-arrow">↗</span>
-        </a>
+        <section class="exercise-list">
 
 
-        <a href="https://ratheeshsaraf.github.io/web-tech/ex4/index.html"
-           target="_blank" class="exercise-item">
+            <!-- Exercise 01 -->
 
-            <span class="exercise-number">04</span>
+            <a
+                href="https://ratheeshsaraf.github.io/web-tech/ex1/portfolio/index.html"
+                target="_blank"
+                class="exercise-item"
+            >
 
-            <div class="exercise-info">
-                <h4>Simple Calculator</h4>
-                <p>Basic arithmetic calculator</p>
-            </div>
+                <span class="exercise-number">
+                    01
+                </span>
 
-            <span class="exercise-arrow">↗</span>
-        </a>
+                <div class="exercise-info">
+
+                    <h3>
+                        Portfolio Website
+                    </h3>
+
+                    <p>
+                        Personal portfolio using HTML & CSS
+                    </p>
+
+                </div>
+
+                <span class="exercise-arrow">
+                    ↗
+                </span>
+
+            </a>
 
 
-        <a href="https://ratheesh.ct.ws/ex5/index.php"
-           target="_blank" class="exercise-item">
+            <!-- Exercise 02 -->
 
-            <span class="exercise-number">05</span>
+            <a
+                href="https://ratheeshsaraf.github.io/web-tech/ex2/index.html"
+                target="_blank"
+                class="exercise-item"
+            >
 
-            <div class="exercise-info">
-                <h4>Employee Records</h4>
-                <p>Database-based employee management system</p>
-            </div>
+                <span class="exercise-number">
+                    02
+                </span>
 
-            <span class="exercise-arrow">↗</span>
-        </a>
+                <div class="exercise-info">
 
-    </div>
+                    <h3>
+                        Shopping Cart
+                    </h3>
 
-    <div class="lab-footer">
-        <span>More exercises will be added weekly</span>
-        <span class="status-dot"></span>
-    </div>
+                    <p>
+                        Basic cart functionality and item management
+                    </p>
 
-</div>
-```
+                </div>
 
-```css
-/* ================================
-   WEB TECHNOLOGY EXERCISES
-================================ */
+                <span class="exercise-arrow">
+                    ↗
+                </span>
 
-.web-lab-card {
-    position: relative;
-    overflow: hidden;
-}
+            </a>
 
-.lab-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 22px;
-}
 
-.lab-tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 5px 9px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.08);
-    margin-bottom: 8px;
-}
+            <!-- Exercise 03 -->
 
-.lab-header h3 {
-    margin: 0 0 6px;
-}
+            <a
+                href="https://ratheeshsaraf.github.io/web-tech/ex3/index.html"
+                target="_blank"
+                class="exercise-item"
+            >
 
-.lab-header p {
-    margin: 0;
-    opacity: 0.65;
-    font-size: 13px;
-}
+                <span class="exercise-number">
+                    03
+                </span>
 
-.exercise-count {
-    min-width: 65px;
-    text-align: center;
-    padding: 12px 10px;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 14px;
-}
+                <div class="exercise-info">
 
-.exercise-count strong {
-    display: block;
-    font-size: 22px;
-    line-height: 1;
-}
+                    <h3>
+                        Simple Quiz
+                    </h3>
 
-.exercise-count span {
-    display: block;
-    margin-top: 5px;
-    font-size: 10px;
-    opacity: 0.55;
-}
+                    <p>
+                        Interactive quiz using web technologies
+                    </p>
 
-.exercise-list {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-}
+                </div>
 
-.exercise-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 13px 15px;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 13px;
-    background: rgba(255,255,255,0.025);
-    transition: 0.25s ease;
-}
+                <span class="exercise-arrow">
+                    ↗
+                </span>
 
-.exercise-item:hover {
-    transform: translateX(5px);
-    border-color: rgba(255,255,255,0.25);
-    background: rgba(255,255,255,0.07);
-}
+            </a>
 
-.exercise-number {
-    width: 34px;
-    height: 34px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.08);
-    font-size: 11px;
-    font-weight: 700;
-}
 
-.exercise-info {
-    flex: 1;
-}
+            <!-- Exercise 04 -->
 
-.exercise-info h4 {
-    margin: 0 0 3px;
-    font-size: 14px;
-}
+            <a
+                href="https://ratheeshsaraf.github.io/web-tech/ex4/index.html"
+                target="_blank"
+                class="exercise-item"
+            >
 
-.exercise-info p {
-    margin: 0;
-    font-size: 11px;
-    opacity: 0.55;
-}
+                <span class="exercise-number">
+                    04
+                </span>
 
-.exercise-arrow {
-    font-size: 18px;
-    opacity: 0.45;
-    transition: 0.25s ease;
-}
+                <div class="exercise-info">
 
-.exercise-item:hover .exercise-arrow {
-    opacity: 1;
-    transform: translate(2px, -2px);
-}
+                    <h3>
+                        Simple Calculator
+                    </h3>
 
-.lab-footer {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: 18px;
-    font-size: 11px;
-    opacity: 0.5;
-}
+                    <p>
+                        Basic arithmetic calculator
+                    </p>
 
-.status-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-}
+                </div>
+
+                <span class="exercise-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+            <!-- Exercise 05 -->
+
+            <a
+                href="https://ratheesh.ct.ws/ex5/index.php"
+                target="_blank"
+                class="exercise-item"
+            >
+
+                <span class="exercise-number">
+                    05
+                </span>
+
+                <div class="exercise-info">
+
+                    <h3>
+                        Employee Records
+                    </h3>
+
+                    <p>
+                        Database-based employee management system
+                    </p>
+
+                </div>
+
+                <span class="exercise-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+        </section>
+
+
+        <footer class="footer">
+
+            <span>
+                More exercises will be added weekly
+            </span>
+
+            <span class="status-dot"></span>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
 ```
