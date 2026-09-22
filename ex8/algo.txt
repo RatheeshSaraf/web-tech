@@ -1,0 +1,46 @@
+START
+
+1. Create the webpage using HTML tags:
+   <html>, <head>, <title>, <body>, <header>, <nav>,
+   <div>, <h1>, <h2>, <p>, <a>, <form>, <label>,
+   <input>, <button>, <table>, <tr>, <th>, <td>, <footer>.
+
+2. Connect PHP with MySQL using:
+   include(), mysqli_connect().
+
+3. DISPLAY Contact Management Home Page.
+
+4. IF Add Contact is selected THEN
+      Display form using <form>, <label>, <input>, <button>.
+      Get name, phone number, email and address.
+      Validate fields using JavaScript.
+      Use document.getElementById(), .value and if condition.
+      IF valid THEN
+          Insert contact using $_POST and mysqli_query().
+      END IF
+   END IF
+
+5. DISPLAY all contacts:
+      Execute SELECT query using mysqli_query().
+      Retrieve records using mysqli_fetch_assoc().
+      Display contacts using <table>, <tr>, <th>, <td>.
+
+6. IF Edit is selected THEN
+      Get contact ID.
+      Retrieve contact details.
+      Display details in <form>.
+      Update the contact using UPDATE query and mysqli_query().
+   END IF
+
+7. IF Delete is selected THEN
+      Get contact ID.
+      Delete the contact using DELETE query and mysqli_query().
+      Display updated contact list.
+   END IF
+
+8. IF Search is used THEN
+      Get the search value using $_GET.
+      Search contacts using SELECT and WHERE.
+      Display matching contacts in <table>.
+
+9. STOP
