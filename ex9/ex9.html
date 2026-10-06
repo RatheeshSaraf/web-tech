@@ -1,0 +1,132 @@
+
+<html>
+
+<head>
+
+<title>Weather Information</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    background: #f2f2f2;
+    padding: 50px;
+    text-align: center;
+}
+
+.container {
+    background: white;
+    width: 450px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 12px;
+    width: 230px;
+}
+
+button {
+    padding: 12px 20px;
+    background: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#weather {
+    margin-top: 25px;
+    text-align: left;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Weather Information</h1>
+
+<input type="text" id="city" placeholder="Enter city">
+
+<button onclick="fetchWeather()">
+Get Weather
+</button>
+
+<div id="weather"></div>
+
+</div>
+
+<script>
+
+function fetchWeather() {
+
+    let city = document.getElementById("city").value;
+
+    if (city == "") {
+        alert("Enter city name");
+        return;
+    }
+
+    fetch("https://geocoding-api.open-meteo.com/v1/search?name="
+          + encodeURIComponent(city)
+          + "&count=1&language=en&format=json")
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if (!data.results) {
+            document.getElementById("weather").innerHTML =
+                "<p>City not found</p>";
+            return;
+        }
+
+        let latitude = data.results[0].latitude;
+        let longitude = data.results[0].longitude;
+        let cityName = data.results[0].name;
+
+        return fetch(
+            "https://api.open-meteo.com/v1/forecast?latitude="
+            + latitude
+            + "&longitude="
+            + longitude
+            + "&current=temperature_2m,relative_humidity_2m,weather_code"
+        )
+        .then(response => response.json())
+
+        .then(weather => {
+
+            document.getElementById("weather").innerHTML =
+                "<h2>" + cityName + "</h2>" +
+                "<p>Temperature: "
+                + weather.current.temperature_2m
+                + " °C</p>" +
+                "<p>Humidity: "
+                + weather.current.relative_humidity_2m
+                + "%</p>" +
+                "<p>Weather Code: "
+                + weather.current.weather_code
+                + "</p>";
+
+        });
+
+    })
+
+    .catch(error => {
+
+        document.getElementById("weather").innerHTML =
+            "<p>Unable to fetch weather data</p>";
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
