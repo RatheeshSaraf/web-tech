@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Online Book Library</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f7;
+            color: #222;
+        }
+
+        header {
+            background: #003366;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin: 8px 0 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .search-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+            text-align: center;
+        }
+
+        .search-box input {
+            width: 60%;
+            padding: 13px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 13px 22px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-size: 15px;
+        }
+
+        #searchBtn {
+            background: #003366;
+        }
+
+        #clearBtn {
+            background: #777;
+        }
+
+        #loading {
+            display: none;
+            text-align: center;
+            margin: 25px;
+            font-size: 18px;
+        }
+
+        #resultInfo {
+            margin: 25px 0 15px;
+            font-weight: bold;
+        }
+
+        #bookList {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .book {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        .book img {
+            display: block;
+            width: 130px;
+            height: 190px;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border-radius: 5px;
+        }
+
+        .book h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .book p {
+            margin: 7px 0;
+        }
+
+        .book a {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 15px;
+            background: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .message {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media(max-width: 600px) {
+
+            .search-box input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+                margin-top: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>Online Book Library</h1>
+
+    <p>
+        Search books using jQuery AJAX and JSON
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Enter book title or keyword">
+
+        <button id="searchBtn">
+            Search Books
+        </button>
+
+        <button id="clearBtn">
+            Clear
+        </button>
+
+    </div>
+
+
+    <div id="loading">
+        Loading books...
+    </div>
+
+
+    <div id="resultInfo"></div>
+
+
+    <div id="bookList"></div>
+
+
+</div>
+
+
+<footer>
+
+    Online Book Library |
+    Powered by Open Library API
+
+</footer>
+
+
+<script>
+
+$(document).ready(function() {
+
+
+    $("#searchBtn").click(function() {
+
+        searchBooks();
+
+    });
+
+
+    $("#search").keypress(function(event) {
+
+        if (event.which == 13) {
+
+            searchBooks();
+
+        }
+
+    });
+
+
+    $("#clearBtn").click(function() {
+
+        $("#search").val("");
+
+        $("#bookList").html("");
+
+        $("#resultInfo").html("");
+
+    });
+
+
+    function searchBooks() {
+
+
+        let query = $("#search").val().trim();
+
+
+        if (query == "") {
+
+            $("#resultInfo").html(
+                "<div class='message'>" +
+                "Please enter a book title or keyword." +
+                "</div>"
+            );
+
+            return;
+
+        }
+
+
+        $("#loading").show();
+
+        $("#bookList").html("");
+
+        $("#resultInfo").html("");
+
+
+        $.ajax({
+
+            url:
+            "https://openlibrary.org/search.json?q="
+            + encodeURIComponent(query)
+            + "&limit=12",
+
+            type: "GET",
+
+            dataType: "json",
+
+
+            success: function(data) {
+
+
+                $("#loading").hide();
+
+
+                if (data.docs.length == 0) {
+
+                    $("#resultInfo").html(
+                        "<div class='message'>" +
+                        "No books found." +
+                        "</div>"
+                    );
+
+                    return;
+
+                }
+
+
+                $("#resultInfo").html(
+                    "Found " +
+                    data.numFound +
+                    " books. Showing first " +
+                    Math.min(data.docs.length, 12) +
+                    " results."
+                );
+
+
+                $.each(
+                    data.docs.slice(0, 12),
+                    function(index, book) {
+
+
+                        let title =
+                            book.title ||
+                            "Unknown Title";
+
+
+                        let author =
+                            book.author_name
+                            ? book.author_name[0]
+                            : "Unknown Author";
+
+
+                        let year =
+                            book.first_publish_year ||
+                            "Unknown";
+
+
+                        let editions =
+                            book.edition_count ||
+                            "Unknown";
+
+
+                        let publisher =
+                            book.publisher
+                            ? book.publisher[0]
+                            : "Unknown";
+
+
+                        let language =
+                            book.language
+                            ? book.language[0]
+                            : "Unknown";
+
+
+                        let cover;
+
+
+                        if (book.cover_i) {
+
+                            cover =
+                            "https://covers.openlibrary.org/b/id/"
+                            + book.cover_i
+                            + "-M.jpg";
+
+                        } else {
+
+                            cover =
+                            "https://via.placeholder.com/130x190"
+                            + "?text=No+Cover";
+
+                        }
+
+
+                        let bookLink =
+                            book.key
+                            ? "https://openlibrary.org"
+                            + book.key
+                            : "#";
+
+
+                        let html =
+
+                        "<div class='book'>" +
+
+                        "<img src='" +
+                        cover +
+                        "' alt='Book Cover'>" +
+
+                        "<h2>" +
+                        title +
+                        "</h2>" +
+
+                        "<p><b>Author:</b> " +
+                        author +
+                        "</p>" +
+
+                        "<p><b>First Published:</b> " +
+                        year +
+                        "</p>" +
+
+                        "<p><b>Editions:</b> " +
+                        editions +
+                        "</p>" +
+
+                        "<p><b>Publisher:</b> " +
+                        publisher +
+                        "</p>" +
+
+                        "<p><b>Language:</b> " +
+                        language +
+                        "</p>" +
+
+                        "<a href='" +
+                        bookLink +
+                        "' target='_blank'>" +
+                        "View Book" +
+                        "</a>" +
+
+                        "</div>";
+
+
+                        $("#bookList").append(html);
+
+
+                    }
+                );
+
+            },
+
+
+            error: function() {
+
+
+                $("#loading").hide();
+
+
+                $("#resultInfo").html(
+
+                    "<div class='message'>" +
+
+                    "Unable to fetch book data. " +
+
+                    "Please check your internet connection." +
+
+                    "</div>"
+
+                );
+
+            }
+
+        });
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
