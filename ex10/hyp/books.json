@@ -1,0 +1,123 @@
+
+[
+  {
+    "id": 1,
+    "title": "Computer Networks",
+    "author": "Andrew S. Tanenbaum",
+    "year": 2021,
+    "genre": "Computer Science",
+    "publisher": "Pearson",
+    "language": "English",
+    "editions": 5,
+    "isbn": "9780132126953",
+    "description": "A book about network architecture, protocols and communication."
+  },
+  {
+    "id": 2,
+    "title": "Operating System Concepts",
+    "author": "Abraham Silberschatz",
+    "year": 2018,
+    "genre": "Computer Science",
+    "publisher": "Wiley",
+    "language": "English",
+    "editions": 10,
+    "isbn": "9781119320913",
+    "description": "Explains operating system principles and process management."
+  },
+  {
+    "id": 3,
+    "title": "Let Us C",
+    "author": "Yashavant Kanetkar",
+    "year": 2020,
+    "genre": "Programming",
+    "publisher": "BPB Publications",
+    "language": "English",
+    "editions": 16,
+    "isbn": "9789389845680",
+    "description": "Introduces C programming with examples and exercises."
+  },
+  {
+    "id": 4,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "year": 2008,
+    "genre": "Programming",
+    "publisher": "Prentice Hall",
+    "language": "English",
+    "editions": 1,
+    "isbn": "9780132350884",
+    "description": "Discusses writing readable and maintainable software."
+  },
+  {
+    "id": 5,
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "year": 2022,
+    "genre": "Algorithms",
+    "publisher": "MIT Press",
+    "language": "English",
+    "editions": 4,
+    "isbn": "9780262046305",
+    "description": "Covers algorithms, data structures and computational analysis."
+  },
+  {
+    "id": 6,
+    "title": "Artificial Intelligence",
+    "author": "Stuart Russell",
+    "year": 2020,
+    "genre": "Artificial Intelligence",
+    "publisher": "Pearson",
+    "language": "English",
+    "editions": 4,
+    "isbn": "9780134610993",
+    "description": "Explores intelligent agents, machine learning and AI methods."
+  },
+  {
+    "id": 7,
+    "title": "Database System Concepts",
+    "author": "Henry F. Korth",
+    "year": 2019,
+    "genre": "Database",
+    "publisher": "McGraw Hill",
+    "language": "English",
+    "editions": 7,
+    "isbn": "9780078022159",
+    "description": "Explains relational databases, SQL and transaction processing."
+  },
+  {
+    "id": 8,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "year": 1988,
+    "genre": "Fiction",
+    "publisher": "HarperOne",
+    "language": "English",
+    "editions": 1,
+    "isbn": "9780062315007",
+    "description": "A fictional journey about dreams, purpose and discovery."
+  },
+  {
+    "id": 9,
+    "title": "Wings of Fire",
+    "author": "A. P. J. Abdul Kalam",
+    "year": 1999,
+    "genre": "Autobiography",
+    "publisher": "Universities Press",
+    "language": "English",
+    "editions": 1,
+    "isbn": "9788173711466",
+    "description": "An autobiography describing the life and work of A. P. J. Abdul Kalam."
+  },
+  {
+    "id": 10,
+    "title": "Web Technologies",
+    "author": "Uttam K. Roy",
+    "year": 2010,
+    "genre": "Web Development",
+    "publisher": "Oxford University Press",
+    "language": "English",
+    "editions": 1,
+    "isbn": "9780198066227",
+    "description": "Introduces web development technologies and internet applications."
+  }
+]
